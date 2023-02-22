@@ -7,7 +7,7 @@ const ImageArr=["https://static3.industrybuying.com/c0_category/2384/221023image
 "https://static3.industrybuying.com/c0_category/2384/220316Agriculture-1.jpg"]
 
 
-let i=0;
+//let i=0;
 function ImageSlide(a,i=0)
 {
 setInterval(()=>{
@@ -21,3 +21,6 @@ if(i===ImageArr.length)
 }
 ImageSlide(3000)
 
+function Button(){
+    
+}
