@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <nav>
+        <div>
+            <div>
+                <img src="./Images/logo.jpg" alt="">
+            </div>
+            <div>
+                <div>
+                    <p>Secure</p>
+                    <p>PAYMENTS</p>
+                </div>
+                <div>
+                    <p>Original</p>
+                    <p>PRODUCTS</p>
+                </div>
+                <div>
+                    <p>Free & Easy</p>
+                    <p>RETURNS</p>
+                </div>
+                <div>
+                    <p>100% Buyer</p>
+                    <p>PROTECTION</p>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="main">
+        <div id="first">
+            <div id="firstchild1">
+                <span>My Cart </span><span> (<span id="count"></span> items)</span>
+            </div>
+            <div id="firstchild2">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Item</td>
+                            <td>Qunatity</td>
+                            <td>Price <span>(inclusive of GST)</span> </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- append the data here -->
+
+
+
+                    </tbody>
+                </table>
+            </div>
+            <div id="firstchild3">
+                <button id="continueShopping">+CONTINUE SHOPPING</button>
+                <button id="placeOrder" >PLACE ORDER</button>
+            </div>
+        </div>
+        <div id="second">
+            <div id="paymentSummary">
+                <div>
+                    <div>
+                        <p class="heading">payment Summary</p>
+                    </div>
+                </div>
+                <hr>
+                <div id="shippingAdd">
+                    <p>Estimate shipping charges</p>
+                    <input type="number" placeholder="Pincode"><button>check</button>
+                </div>
+                <div id="totalPrice">
+                    <div><span>Subtotal</span><span id="subTotal">Rs 15000</span></div>
+                    <div><span>Shipping Charges</span><span>FREE</span></div>
+                    <div><span>Total Price</span><span id="total"></span></div>
+                </div>
+                <hr>
+                <div>
+                    <p>Shipping charges applicable as per your pincode 462048</p>
+                </div>
+            </div>
+            <div id="partnerOffers">
+                <div>
+                    <div>
+                        <p class="heading">Partner Offers</p>
+                    </div>
+                </div>
+                <div>
+                    <p>Get GST invoice and save up to 28% on Business Purchases.</p>
+                    <a href="">View more</a>
+                </div>
+            </div>
+            <div id="offersAvailable">
+                <div>
+                    <div>
+                        <p class="heading">Offers Available</p>
+                    </div>
+                </div>
+                <div>
+                    <input type="text" placeholder="Enter your coupon" id="coupon"><button id="btnCoupon">Apply</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <p>By clicking on Place Order button you agree to industrybuying.com's <a href="">Terms & Conditions</a> and <a href="">Privacy Policy</a>.</p>
+        <div id="imgContainers">
+            <img src="./Images/payment_options_min.png" alt="">
+        </div>
+    </div>
+</body>
+<script src="./cart.js"></script>
+</html>
