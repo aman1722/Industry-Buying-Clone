@@ -14,7 +14,7 @@ nav{
     justify-content: space-between;
     position: sticky;
     background-color: black;
-    top: 0;
+    top: -10px;
     z-index: 15;
 }
 nav>div:nth-child(1){
@@ -130,7 +130,6 @@ table>tbody>tr{
     position: sticky;
     z-index: 1px;
     bottom: 0;
-    scroll-behavior: auto;
     background-color: white;
 }
 #placeOrder{
