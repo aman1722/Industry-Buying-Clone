@@ -1,0 +1,354 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f3f3f3;
+}
+nav{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 68px;
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    background-color: black;
+    top: -10px;
+    z-index: 15;
+}
+nav>div:nth-child(1){
+    width:80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+nav>div>div:nth-child(1)>img{
+    width: 150%;
+    height: 68px;
+}
+nav>div>div:nth-child(2){
+    font-size: 13px;
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+}
+nav>div>div:nth-child(2) p{
+    color: white;
+    height: 0;
+}
+#main{
+    width: 95%;
+    display: flex;
+    justify-content: space-around;
+}
+#first{
+    width: 65%;
+}
+#first>div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px 15px 25px;
+    font-size: 15px;
+    margin-top: 15px;
+}
+#first>div{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 0px ;
+    background-color: white;
+}
+#first #add>div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(186, 176, 176);
+}
+#first #add>div>button{
+    font-size: 20px;
+    cursor: pointer;
+}
+#address{
+    width: 50%;
+}
+#address *{
+    width: 100%;
+    border-radius: 10px;
+    line-height: 5px;
+}
+#address input{
+    height: 35px;
+    border: 1px dotted black;
+}
+#first>#address{
+    display: none;
+}
+#first>#showAdd{
+    display: none;
+}
+#first #inputSub{
+    background-color: dodgerblue;
+    margin-top: 15px;
+    color: white;
+}
+
+#main>#second{
+    width: 25%;
+}
+
+
+#email{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+#first button{
+    background-color: white;
+    border: 0;
+    padding: 5px 15px 5px 15px;
+}
+#email img{
+    width: 35px;
+    margin-right:15px;
+}
+
+#paymentSummary{
+    margin-bottom: 15px; 
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: white;
+}
+#paymentSummary>div:nth-child(1){
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+}
+#shippingAdd{
+    margin-top: 0px;
+    line-height: 0px;
+}
+#shippingAdd>p, #shippingAdd>input {
+    padding: 12px 10px 12px 10px;
+}
+#shippingAdd>input{
+    height: 10px;
+    margin: 0 0 0 10px;
+}
+#shippingAdd button{
+    height: 37px;
+    width: 20%;
+    font-size: 15px;
+    border: 0;
+    background-color:black ;
+    color: white;
+}
+#paymentOptiions{
+    background-color: white;
+    display: none;
+}
+#paymentOptiions>div:nth-child(1){
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+} 
+#paymentOptiions>div:nth-child(1)~*{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 0 25px 0 25px;
+} 
+#paymentOptiions>div:nth-child(1)~div>div{
+    width: 50%;
+    height: 80px;
+}
+#paymentOptiions img{
+    width: 100%;
+    height: 100%;
+}
+
+#reviewOrder{
+    width: 95%;
+}
+#reviewOrder>div{
+    width: 100%;
+    height: 250px;
+    overflow-y: scroll;
+    background-color: white;
+}
+table{
+    width: 100%;
+}
+table>thead>tr:nth-child(1){
+    position: sticky;
+    top: 0;
+    background-color: black;
+    height: 45px;
+    color: white;
+}
+table th , table td{
+    width: 33%;
+    text-align: center;
+}
+table>tbody td{
+    padding: 25px 0 25px 0;
+}
+table img{
+    margin-top: 15px;
+    width: 100%;
+    height: 80px;
+}
+#content{
+    display: flex;
+    justify-content: space-between;
+}
+table>tbody>tr>td:nth-child(1)>div:nth-child(2){
+    width: 100%;
+}
+table>tbody>tr>td:nth-child(1)>div:nth-child(2)>div:nth-child(1){
+    width: 40%;
+}
+table>tbody>tr>td:nth-child(1)>div:nth-child(2)>div:nth-child(2){
+    width: 60%;
+}
+table>tbody>tr>td:nth-child(1)>div:nth-child(2)>div:nth-child(2)>*{
+    height:10px;
+}
+table>tbody>tr>td:nth-child(3){
+    line-height: 5px;
+}
+table>tbody>tr{
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+.heading{
+    color: white;
+    padding: 0 10px 20px 10px;
+    margin-bottom: 0;
+}
+#showAdd>div{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 15px 0 15px 0 ;
+    
+}
+
+#showAdd>div>div{
+    height: 100%;
+    padding: 0 25px 0 25px ;
+    margin: 25px 25px 25px 25px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#first #reviewOrder{
+    display: none;
+}
+#first>#placeorder{
+    position: sticky;
+    bottom: 0;
+}
+#first #btnPlace{
+    padding: 15px 50px 15px 50px;
+    background-color: orange;
+    color: white;
+    cursor: pointer;
+}
+#first>#placeorder{
+    display:none;
+}
+#footer{
+    text-align: center;
+    padding: 15px 0 15px 0;
+    margin-top: 50px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: white;
+    position: relative;
+    bottom: -350px;
+}
+#footer>p{
+    font-size: 12px;
+    color: rgb(127, 122, 122);
+}
+#footer img{
+    width: 50%;
+}
+#totalPrice{
+    margin: 12px;
+    display: grid;
+    grid-template-rows:3;
+    gap: 8px; 
+}
+#totalPrice div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+#totalPrice>div:nth-child(2)>span:nth-child(2){
+    color: green;
+}
+#totalPrice>div:nth-child(3){
+    font-size: 22px;
+    font-weight: bold;
+}
+#totalPrice>div:nth-child(3)>span:nth-child(2){
+    color: red;
+}
+#paymentSummary>div:nth-last-child(1){
+    font-size: 12px;
+    padding: 0 10px 2px 10px ;
+}
+
+.otpPage{
+    width: 100%;
+    height: 350px;
+    z-index: 10;
+}
+.otpPage>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.otpPop{
+    width: 250px;
+    height: 120px;
+    position:fixed;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    background-color: black;
+    transition:all .5s; 
+}
+.showOtp{
+    top: 50%;
+}
+
+
+
+
+@media all and (min-width:800px) and (max-width:1000px){
+    #second{
+        display:none;
+    }
+    #first{
+        width: 100%;
+    }
+
+}
+@media all and (min-width:350px) and (max-width:799px){
+    #second{
+        display: none;
+    }
+    #first{
+        width: 100%;
+    }
+    #content>div:nth-child(2){
+        display: none;
+    }
+}
