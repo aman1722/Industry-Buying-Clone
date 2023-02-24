@@ -242,6 +242,8 @@ table>tbody>tr{
     margin-top: 50px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     background-color: white;
+    position: relative;
+    bottom: -100px;
 }
 #footer>p{
     font-size: 12px;
@@ -278,14 +280,54 @@ table>tbody>tr{
 
 
 
+#mediaTotal{
+    width: 94%;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 25px 25px 25px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 15px 0 15px 0;
+}
+#mediaTotal input{
+    width: 150px;
+    height: 35px;
+    border-radius: 15px;
+    font-weight: bolder;
+}
+#mediaTotal{
+    display:none; 
+}
+#aamount{
+    color: green;
+    font-size: 20px;
+}
+#charges{
+    font-size: 8px;
+    color: red;
+    display: none;
+}
 
-
-@media all and (min-width:800px) and (max-width:1000px){
+@media all and (min-width:800px) and (max-width:1100px){
     #second{
         display: none;
     }
     #first{
         width: 100%;
+    }
+    nav>div>div:nth-child(2){
+        display: none;
+    }
+    #mediaTotal{
+        width: 93%;
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 25px 5px 25px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        margin: 15px 0 15px 0;
     }
 
 }
@@ -296,7 +338,24 @@ table>tbody>tr{
     #first{
         width: 100%;
     }
+    #content>div:nth-child(1){
+        width: 90%;
+    }
     #content>div:nth-child(2){
         display: none;
+    }
+    nav>div>div:nth-child(2){
+        display: none;
+    }
+    #mediaTotal{
+        width: 91%;
+        background-color: white;
+        display: flex;
+        flex-wrap:wrap ;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 25px 5px 25px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        margin: 15px 0 15px 0;
     }
 }

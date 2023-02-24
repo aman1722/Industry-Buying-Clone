@@ -127,6 +127,9 @@ function display(data){
       p4.innerText="Model No: "
       let span4 =  document.createElement("span");
       span4.innerText= `PW 22${i}`;
+      
+      
+      
       p4.append(span4);
       divc2.append(p1,p2,p3,p4);
       divc.append(divc1, divc2);
@@ -134,16 +137,20 @@ function display(data){
       td1.append(divp, divc);
 
 
-
       let td2 = document.createElement("td");
       let span=document.createElement("span");
       span.innerText=data[i].quantity;
+
+
+
       td2.append(span);
 
       let td3 = document.createElement("td");
       td3.innerText=`Rs ${data[i].price}`;
       let p5 = document.createElement("p");
       p5.innerText=`Delivery in ${4} days`;
+      
+      
       td3.append(p5);
 
       tr.append(td1 , td2 , td3 );
@@ -155,6 +162,7 @@ display(data);
 if(AddressData.length!==0){
   dispalyAddress(AddressData);
   document.getElementById("reviewOrder").style.display="block";
+  document.getElementById("paymentOptiions").style.display="block";
   document.getElementById("placeorder").style.display="block";
   document.getElementById("placeorder").style.display="flex";
   document.getElementById("placeorder").style.justifyContent="end";
@@ -162,8 +170,14 @@ if(AddressData.length!==0){
 }
 
  function dispalyAddress(data){
-  document.getElementById("add").style.display="none";
+    document.querySelector("#totalAdd").innerHTML="";
     for(let i=0 ; i<data.length ; ++i){
+      let div1 = document.createElement("span");
+      let input = document.createElement("input");
+      input.setAttribute("type", "radio");
+      input.setAttribute("name", "Address");
+      input.setAttribute("checked","checked");
+      div1.append(input)
       let div =document.createElement("div");
       let p=document.createElement("p");
       p.innerText=AddressData[i].name;
@@ -172,7 +186,7 @@ if(AddressData.length!==0){
       let p3=document.createElement("p");
       p3.innerText="Mobile Number: +91"+data[i].mobile;
       div.append(p,p2,p3);
-      document.getElementById("showAdd").append(div);
+      document.getElementById("totalAdd").append(div1,div);
     }
     document.getElementById("showAdd").style.display="block"
 }
@@ -181,9 +195,7 @@ if(AddressData.length!==0){
 
 let addAddBtn=document.getElementById("addAddress");
 addAddBtn.addEventListener("click" , function(){
-  document.getElementById("add").style.display="none";
   document.getElementById("address").style.display="block";
-  
 });
 
 
@@ -199,13 +211,37 @@ form.addEventListener("submit", function(el){
     pincode: document.getElementById("pincode").value,
     state:document.getElementById("state").value
   };
-  document.getElementById("add").style.display="none";
   AddressData.push(obj);
-  dispalyAddress(AddressData);
+  // dispalyAddress(AddressData);
   localStorage.setItem("addressData", JSON.stringify(AddressData));
-  document.getElementById("reviewOrder").style.display="block";
-  document.getElementById("placeorder").style.display="block";
-  document.getElementById("placeorder").style.display="flex";
-  document.getElementById("placeorder").style.justifyContent="end";
-  document.getElementById("placeorder").style.alignItems="center";
+  document.location.reload();
+  // document.getElementById("reviewOrder").style.display="block";
+  // document.getElementById("placeorder").style.display="block";
+  // document.getElementById("placeorder").style.display="flex";
+  // document.getElementById("placeorder").style.justifyContent="end";
+  // document.getElementById("placeorder").style.alignItems="center";
 });
+
+
+
+
+document.getElementById("btnPlace").addEventListener("click",function(){
+  document.querySelector(".otpPop").classList.add("showOtp");
+});
+let value=0;
+document.getElementById("sub").addEventListener("click", function(){
+  value= document.getElementById("otp").value;
+  if(value==="1234"){
+    document.querySelector(".otpPop").classList.remove("showOtp");
+    document.getElementById("otp").value="";
+    alert("purchase Successful");
+    setTimeout(()=>{
+      window.location.href="index.html";
+    },3000)
+
+  }
+  else{
+    document.getElementById("otp").value="";
+    alert("Wrong OTP");
+  }
+})

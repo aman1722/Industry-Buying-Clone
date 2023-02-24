@@ -47,7 +47,7 @@
                     <thead>
                         <tr>
                             <td>Item</td>
-                            <td>Qunatity</td>
+                            <td>Quanatity</td>
                             <td>Price <span>(inclusive of GST)</span> </td>
                         </tr>
                     </thead>
@@ -58,6 +58,16 @@
 
                     </tbody>
                 </table>
+            </div>
+            <div id="mediaTotal">
+                <h1>Total Price</h1>
+                <form id="form">
+                    <input type="number" id="pin" placeholder="pincode">
+                </form>
+                <div>
+                    <span id="aamount"></span>
+                    <p id="charges">Shipping charges: Rs 1200</p>
+                </div>
             </div>
             <div id="firstchild3">
                 <button id="continueShopping">+CONTINUE SHOPPING</button>
@@ -74,11 +84,11 @@
                 <hr>
                 <div id="shippingAdd">
                     <p>Estimate shipping charges</p>
-                    <input type="number" placeholder="Pincode"><button>check</button>
+                    <input type="number" placeholder="Pincode" id="pincode"><button id="check">check</button>
                 </div>
                 <div id="totalPrice">
-                    <div><span>Subtotal</span><span id="subTotal">Rs 15000</span></div>
-                    <div><span>Shipping Charges</span><span>FREE</span></div>
+                    <div><span>Subtotal</span><span id="subTotal"></span></div>
+                    <div><span>Shipping Charges</span><span id="sippingCharges">FREE</span></div>
                     <div><span>Total Price</span><span id="total"></span></div>
                 </div>
                 <hr>

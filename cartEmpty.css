@@ -102,3 +102,29 @@ button{
 button:hover{
     cursor: pointer;
 }
+
+
+
+@media all and (min-width:650px) and (max-width:1000px){
+    nav>div>div:nth-child(2){
+        display: none;
+    }
+    #linkS{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px 25% 25px 25px ;
+    }
+}
+
+
+@media all and (max-width:649px){
+    nav>div>div:nth-child(2){
+        display: none;
+    }
+    #linkS{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+}

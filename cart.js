@@ -196,10 +196,11 @@ display(data);
 function total(data){
   let total=0;
   for(let i=0 ; i<data.length ; ++i){
-    total += Number(data[i].price*data[i].quantity);
+    total += Number(data[i].price)*Number(data[i].quantity);
   }
   document.getElementById("total").innerText =`Rs ${total}`;
   document.getElementById("subTotal").innerText =`Rs ${total}`;
+  document.getElementById("aamount").innerText=`Rs ${total}`;
 }
 
 
@@ -207,15 +208,75 @@ document.getElementById("btnCoupon").addEventListener("click", function(){
   if(document.getElementById("coupon").value==="Masai40"){
     let total=0;
     for(let i=0 ; i<data.length ; ++i){
-      total += Number(data[i].price*data[i].quantity);
+      total += Number(data[i].price)*Number(data[i].quantity);
     }
     total -= Math.ceil(total*.4);
     document.getElementById("total").innerText =`Rs ${total}`;
     document.getElementById("subTotal").innerText =`Rs ${total}`;
+    document.getElementById("aamount").innerText=`Rs ${total}`;
   }else{
     alert("Invalid Coupon");
   }
 });
+
+
+
+document.getElementById("check").addEventListener("click", function(){
+  if(document.getElementById("pincode").value.length===6){
+      if(document.getElementById("pincode").value!=="123456"){
+        document.getElementById("sippingCharges").innerText=`Rs 1200`;
+        let total=0;
+        for(let i=0 ; i<data.length ; ++i){
+          total += Number(data[i].price)*Number(data[i].quantity);
+        }
+        document.getElementById("total").innerText =`Rs ${total+1200}`;
+        document.getElementById("subTotal").innerText =`Rs ${total}`;
+      }else{
+        document.getElementById("sippingCharges").innerText="FREE"
+        let total=0;
+        for(let i=0 ; i<data.length ; ++i){
+          total += Number(data[i].price)*Number(data[i].quantity);
+        }
+        document.getElementById("total").innerText =`Rs ${total}`;
+        document.getElementById("subTotal").innerText =`Rs ${total}`;
+          } 
+  }else{
+    alert("Invalid Pincode");
+  }
+  
+});
+
+
+document.getElementById("form").addEventListener("submit", function(el){
+  el.preventDefault();
+  if(document.getElementById("pin").value.length===6){
+    if(document.getElementById("pin").value!=="123456"){
+      document.getElementById("sippingCharges").innerText=`Rs 1200`;
+      let total=0;
+      for(let i=0 ; i<data.length ; ++i){
+        total += Number(data[i].price)*Number(data[i].quantity);
+      }
+      document.getElementById("total").innerText =`Rs ${total+1200}`;
+      document.getElementById("subTotal").innerText =`Rs ${total}`;
+      document.getElementById("aamount").innerText=`Rs ${total+1200}`;
+      document.getElementById("pin").value="";
+      document.getElementById("charges").style.display="block"
+    }else{
+      document.getElementById("sippingCharges").innerText="FREE"
+      let total=0;
+      for(let i=0 ; i<data.length ; ++i){
+        total += Number(data[i].price)*Number(data[i].quantity);
+      }
+      document.getElementById("total").innerText =`Rs ${total}`;
+      document.getElementById("subTotal").innerText =`Rs ${total}`;
+      document.getElementById("aamount").innerText=`Rs ${total}`;
+      document.getElementById("pin").value="";
+      document.getElementById("charges").style.display="none"
+        } 
+  }else{
+    alert("Invalid Pincode");
+  }
+})
 
 
 
