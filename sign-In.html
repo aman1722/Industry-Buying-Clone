@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-In</title>
+    <style>
+        #logo{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            height: 100px;
+            background-color: black;
+            overflow: hidden;
+        }
+        #logo img{
+            height: 200%;
+            
+         
+        }
+        #container{
+           margin: auto;
+           margin-top: 0px;
+            height: 770px;
+            width: 53%;
+           
+            
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+            background-color: white;
+        }
+        #flex{
+            width: 100%;
+            height: 90px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+        }
+        #flex a{
+            text-decoration: none;
+            color: gray;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 38px;
+
+        }
+        #main{
+            border-bottom: 4px solid rgb(54, 140, 198);
+            
+        }
+        #social>img{
+            height: 100%;
+        }
+        #form{
+            width: 100%;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #signInForm{
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 56%;
+            text-align: left;
+            justify-content: space-evenly;
+            margin-top: 20px;
+        }
+        #signInForm>input{
+            height: 14%;
+        }
+        label{
+            font-size: 23px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: grey;
+        }
+        #button{
+            font-size: 28px;
+            
+            background-color: rgb(247, 134, 14);
+            color: white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            border: none;
+            height: 12%;
+        }
+        #end{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            width: 100%;
+            height: 25px;
+            
+            background-color: gainsboro;
+        }
+        body{
+            background-color: gainsboro;
+        }
+        #end>a{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: gray;
+            margin-left: 35px;
+            margin-right: 35px;
+            text-decoration: none;
+            font-size: 12px;
+        }
+        h1{
+           font-size: 16px;
+           color: gray;
+        }
+        p{
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            color: grey;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        h3{
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        #social{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 110px;
+        }
+        input{
+            font-size: 22px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <div id="logo">
+        <img src="Images/induslogo.jpg" alt="">
+    </div>
+
+    <div id="flex">
+
+      <a href="./sign-up.html">JOIN</a>
+      <h1>|</h1>
+    <a href="./sign-In.html" id="main">SIGN IN</a>
+     </div>
+
+   <div id="form">
+     <form id="signInForm">
+       <label for="email">Email</label>
+       <input type="email" id="email" required>
+
+       <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+
+        <input  id="button" type="submit" value="Sign In">
+
+    </form>
+    </div>
+     <p>forgot password?</p>
+
+
+     <h3>OR SIGN IN WITH</h3>
+
+
+  <div id="social">
+     <img src="https://miro.medium.com/max/1400/1*FfWthK27Xzv92BgrvYjv5A.png" alt="">
+
+  </div>
+     
+     <p>Where has Twitter Gone?</p> 
+
+
+
+
+   <div id="end">
+  <a href="">privacy policy</a>
+    <h1>|</h1>
+    <a href="">terms and condition</a>
+   </div>
+
+
+</div>
+
+
+</body>
+<script>
+   const storedUser = JSON.parse(localStorage.getItem("user"));
+
+if (storedUser) {
+  
+  const emailField = document.getElementById("email");
+  const passwordField = document.getElementById("password");
+  
+ 
+  emailField.value = storedUser.email;
+  passwordField.value = storedUser.password;
+
+  
+  document.getElementById("signInForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const enteredEmail = emailField.value;
+    const enteredPassword = passwordField.value;
+
+    if (storedUser.loggedIn) {
+      alert("You have already signed in.");
+    } else if (enteredEmail === storedUser.email && enteredPassword === storedUser.password) {
+      alert("Sign in successful!");
+      
+      storedUser.loggedIn = true;
+      localStorage.setItem("userr", JSON.stringify(storedUser));
+      window.location.href="./index.html"
+    } else {
+      alert("Incorrect email or password. Please try again.");
+    }
+  });
+} else {
+  console.log("No user data found in local storage.");
+}
+
+</script>
+</html>
