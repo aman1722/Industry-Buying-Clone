@@ -29,9 +29,9 @@
     </div>
 
 
-    <form action="/search">
-        <input type="text" placeholder="seach product by title, supplier, category, brand etc..">
-        <button type="submit">GO</button>
+    <form id="searchForm" action="/search">
+        <input id="search" type="text" placeholder="search product by title, supplier, category, brand etc..">
+        <input type="submit" value="GO">
     </form>
     <div id="signIn">
         <img src="https://www.industrybuying.com/static/svg/signin-icon.svg" alt="">
@@ -693,6 +693,13 @@
 
 
 <script>
+
+    let search=document.getElementById("searchForm")
+    let inputsearch=document.getElementById("search")
+
+    
+
+
     let images = document.getElementById("image-slider").getElementsByTagName("img");
 let current = 0;
 
@@ -704,6 +711,7 @@ function nextImage() {
 }
 
 nextImage();
+
 </script>
 
 </html>
