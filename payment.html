@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <title>IndusTech/cart/payment</title>
+    <link rel="stylesheet" href="./payment.css">
+</head>
+<body>
+    <nav>
+        <div>
+            <div>
+                <img src="./Images/induslogo.jpg" alt="">
+            </div>
+            <div>
+                <div>
+                    <p>Secure</p>
+                    <p>PAYMENTS</p>
+                </div>
+                <div>
+                    <p>Original</p>
+                    <p>PRODUCTS</p>
+                </div>
+                <div>
+                    <p>Free & Easy</p>
+                    <p>RETURNS</p>
+                </div>
+                <div>
+                    <p>100% Buyer</p>
+                    <p>PROTECTION</p>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="main">
+        <div id="first">
+            <div>
+                <div id="email">
+                    <div>
+                        <img src="./Images/approved.svg" alt="">
+                    </div>  
+                    <h3>Email</h3>
+                </div>
+                <div>
+                    <p id="showEmail"></p>
+                </div>
+                <div>
+                    <button id="changeEmail">change</button>
+                </div>
+            </div>
+            <div id="showAdd">
+                <h2>Address</h2>
+                <div id="totalAdd">
+                    
+                </div>
+            </div>
+            <div id="address">
+                <h2>Fill the below form</h2>
+                <span></span>
+                <form>
+                    <p>Full Name</p>
+                    <input type="text" id="name" required>
+                    <p>Mobile No.</p>
+                    <input type="text" id="mobile" required>
+                    <p>House No.</p>
+                    <input type="text" id="house" required>
+                    <p>Area</p>
+                    <input type="text" id="area" required>
+                    <p>City</p>
+                    <input type="text" id="city" required>
+                    <p>State</p>
+                    <input type="text" id="state" required>
+                    <p>Pincode</p>
+                    <input type="number" id="pincode" required>
+                    <input type="submit" id="inputSub">
+                </form>
+            </div>
+            <div id="add">
+               <div>
+                    <button id="addAddress">Add Address +</button>
+               </div>
+            </div>
+            <div id="reviewOrder">
+                <h3>Review Orders</h3>
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Item</td>
+                                <td>Quanatity</td>
+                                <td>Price <span>(inclusive of GST)</span> </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- append the data here -->
+    
+    
+    
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="mediaTotal">
+                <h1>Total Price</h1>
+                <div>
+                    <span id="aamount"></span>
+                </div>
+            </div>
+            <div id="mediapaymentOptiions">
+                <div>
+                    <div>
+                        <p class="heading">Select payment option</p>
+                    </div>
+                </div>
+                <div>
+                    <input type="radio" name="Select payment option" >
+                    <div>
+                        <img src="./Images/google-pay.svg" alt="">
+                    </div>
+                </div>
+                <div>
+                    <input type="radio" name="Select payment option" >
+                    <div>
+                        <img src="./Images/phonepe.svg" alt="">
+                    </div>
+                </div>
+                <div>
+                    <input type="radio" name="Select payment option" >
+                    <div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_aXbHXbFxHeTsSrAnCa8Q3q8_Kg10zvgSZQ&usqp=CAU" alt="">
+                    </div>
+                </div>
+                <div>
+                    <input type="radio" name="Select payment option" checked><div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSis5OvJxmOUwy6oIoy1F_65XMmOuS3-Gck7A&usqp=CAU" alt="">
+                    </div>
+                </div>
+            </div>
+            <div id="placeorder">
+                <button id="btnPlace">Make Payment</button>
+            </div>
+        </div>
+        <div id="second">
+            <div id="paymentSummary">
+                <div>
+                    <div>
+                        <p class="heading">payment Summary</p>
+                    </div>
+                </div>
+                <hr>
+                <div id="totalPrice">
+                    <div><span>Subtotal</span><span id="subTotal"></span></div>
+                    <div><span>Shipping Charges</span><span>FREE</span></div>
+                    <div><span>Total Price</span><span id="total"></span></div>
+                </div>
+                <hr>
+                <div>
+                    <p>Shipping charges applicable as per your pincode 462048</p>
+                </div>
+            </div>
+            <div id="paymentOptiions">
+                <div>
+                    <div>
+                        <p class="heading">Select payment option below:-</p>
+                    </div>
+                </div>
+                <div>
+                    <input type="radio" name="Select payment option below" >
+                    <div>
+                        <img src="./Images/google-pay.svg" alt="">
+                    </div>
+                </div>
+                <div>
+                    <input type="radio" name="Select payment option below" >
+                    <div>
+                        <img src="./Images/phonepe.svg" alt="">
+                    </div>
+                </div>
+                <div>
+                    <input type="radio" name="Select payment option below" >
+                    <div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_aXbHXbFxHeTsSrAnCa8Q3q8_Kg10zvgSZQ&usqp=CAU" alt="">
+                    </div>
+                </div>
+                <div>
+                    <input type="radio" name="Select payment option below" checked><div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSis5OvJxmOUwy6oIoy1F_65XMmOuS3-Gck7A&usqp=CAU" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <p>By clicking on Place Order button you agree to industrybuying.com's <a href="">Terms & Conditions</a> and <a href="">Privacy Policy</a>.</p>
+        <div id="imgContainers">
+            <img src="./Images/payment_options_min.png" alt="">
+        </div>
+    </div>
+    <div class="otpPage">
+        <div>
+            <div class="otpPop">
+                <p>Please Enter Your OTP</p>
+                <input type="Number" id="otp">
+                <input type="submit" id="sub">
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./payment.js"></script>
+</html>
