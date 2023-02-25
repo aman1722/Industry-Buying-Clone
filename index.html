@@ -30,9 +30,9 @@
     </div>
 
 
-    <form action="/search">
-        <input type="text" placeholder="seach product by title, supplier, category, brand etc..">
-        <button type="submit">GO</button>
+    <form id="searchForm" action="/search">
+        <input id="search" type="text" placeholder="search product by title, supplier, category, brand etc..">
+        <input type="submit" value="GO">
     </form>
     <div id="signIn">
         <img src="https://www.industrybuying.com/static/svg/signin-icon.svg" alt="">
@@ -4279,6 +4279,13 @@
 </div>
 </body>
 <script>
+
+    let search=document.getElementById("searchForm")
+    let inputsearch=document.getElementById("search")
+
+    
+
+
     let images = document.getElementById("image-slider").getElementsByTagName("img");
 let current = 0;
 
@@ -4327,6 +4334,22 @@ function renderproduct(products){
 
     }
 }
+
+search.addEventListener("submit", function(el){
+        el.preventDefault();
+
+        let btn=inputsearch.value;
+        let data=response.filter((element)=>{
+            if(element.name.toUpperCase().includes(btn.toUpperCase())){
+                return true;
+            }else{
+                return false;
+            }
+        })
+renderproduct(data)
+
+
+    })
 
 })
 

@@ -61,7 +61,7 @@ border-top-left-radius: 6px;
 border: none;
 margin-left: 8px;
 }
-nav>form>input{
+nav>form>input:nth-child(1){
 height: 33px;
 
 width: 330px;
@@ -70,10 +70,27 @@ margin-right: 0px;
 padding-right: 0px;
 
 }
+nav>form{
+   
+    display: flex;
+
+}
+nav>form>input:nth-child(2){
+    height: 35px;
+    border: none;
+    background-color: white;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: rgb(255, 115, 0);
+    font-weight: bolder;
+    font-size: 18px;
+    margin: auto;
+
+}
 nav>form>input::placeholder{
 padding-left: 10px;
 }
-nav>form>button{
+/* nav>form>button{
 height: 35px;
 border: none;
 width: 50px;
@@ -83,7 +100,7 @@ border-top-right-radius: 6px;
 border-bottom-right-radius: 6px;
 margin-left: 0px;
 padding-left: 0px;
-}
+} */
 #dropdown-content{
 
 display: flex;
@@ -678,3 +695,4 @@ margin-top: 0px;
 #end>p{
 color: gray;
 }
+
