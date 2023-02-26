@@ -4,7 +4,7 @@ let fetch_1;
 let CartStorage=JSON.parse(localStorage.getItem("Cart"))||[]
 let SelectOption=document.getElementById("Categories");
 let Ratings=document.getElementById("Ratings");
-
+let Select1 = document.querySelector("#Select")
 SelectOption.addEventListener("change",()=>{
     if(SelectOption.value==="Brand")
     {
@@ -71,6 +71,32 @@ async function fetchProduct(A)
         let PromiseData=await fetch(A);
         let Data=await PromiseData.json();
         Display(Data)
+        Select1.addEventListener("change",()=>{
+         if(Select1.value==="")
+         {
+             Display(Data)
+         }
+         else{
+             if(Select1.value==="LowToHigh")
+             {
+                 function Compare(a,b){
+                     return a.price-b.price;
+                 }
+                 let data1=Data.sort(Compare)
+                    Display(data1)
+                 
+             }
+             if(Select1.value==="HighToLow")
+             {
+                 function Compare(a,b){
+                     return b.price-a.price;
+                 }
+                 let data1=Data.sort(Compare)
+                    Display(data1)
+                 
+             }
+         }
+        });
     }
     catch(err){
         console.log(err)
@@ -89,6 +115,8 @@ async function fetchProduct(A)
         let div1=document.createElement("div");
         let div2=document.createElement("div");
         let image=document.createElement("img");
+        let div3 = document.createElement("div");
+        div3.innerText = element.rating;
         image.src=element.image;
         
         div1.append(image)
@@ -103,12 +131,26 @@ async function fetchProduct(A)
         let AddToCart=document.createElement("button");
         AddToCart.innerText="Add To Cart";
         
-        AddToCart.addEventListener("click",(el)=>{
-            CartStorage.push(el);
-            localStorage.setItem("Cart",JSON.stringify(CartStorage));            
+        AddToCart.addEventListener("click",()=>{
+            CartStorage.push(element);
+            // let flag = false;
+            // for(let i=0;i<CartStorage.length;i++){
+            //    if(CartStorage[i].id === element.id){
+            //      break;
+            //    }else{
+            //     flag=true;
+            //    }
+            // }
+            // if(flag){
+               localStorage.setItem("Cart",JSON.stringify(CartStorage));
+            alert("Product Added To Cart!")
+            // }else{
+            //    alert("Product Already In Cart!")
+            // }
+                        
         })
         div2.append(AddToCart);
-        div.append(div1,title,Price,div2)
+        div.append(div1,title,Price,div3,div2)
         MainDoc.append(div);
         // image.src=
     });
@@ -127,3 +169,10 @@ const observer = new IntersectionObserver(entries => {
 });
 
 observer.observe(footer);
+
+let cart = document.getElementById("cart");
+cart.addEventListener("click",()=>{
+   window.location.href="cart.html"
+})
+
+

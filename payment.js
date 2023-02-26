@@ -2,7 +2,7 @@ let AddressData= JSON.parse( localStorage.getItem("addressData")) ||[];
 
 
 
-let data =  JSON.parse( localStorage.getItem("products")) ||[];
+let data =  JSON.parse( localStorage.getItem("Cart")) ||[];
 
 
 let tbody = document.querySelector("tbody");
@@ -138,7 +138,21 @@ form.addEventListener("submit", function(el){
 
 
 
-
+async function pushData(data){
+  try {
+    let res = await fetch("https://iris-conscious-potential.glitch.me/orders", {
+      method:"POST",
+      headers:{
+          "Content-Type":"Application/json"
+      },
+      body: JSON.stringify(data)
+    });
+    console.log(res);  
+  } 
+  catch (error) {
+    console.log(error);
+  }
+}
 document.getElementById("btnPlace").addEventListener("click",function(){
   document.querySelector(".otpPop").classList.add("showOtp");
 });
@@ -152,7 +166,16 @@ document.getElementById("sub").addEventListener("click", function(){
     setTimeout(()=>{
       window.location.href="index.html";
     },3000)
-    localStorage.clear();
+    let obj =JSON.parse( localStorage.getItem("loggedInUser"));
+    let user = obj.username;
+    for(let i=0 ; i<data.length ; ++i){
+      data[i]["username"]= user;
+      let finalobj = data[i];
+      pushData(finalobj);
+    }
+    setTimeout(function(){
+      localStorage.clear();
+    },9000);
   }
   else{
     document.getElementById("otp").value="";

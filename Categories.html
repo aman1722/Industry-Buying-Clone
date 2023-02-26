@@ -73,25 +73,25 @@
     <div id="Main">
     <h3>Categories</h3>
     <div id="category">
-        <div>
+        <div class="click">
             <div>
                 <img src="https://static1.industrybuying.com/category_small/2022/11/grain-processing-machine-16292-1669116640479.webp" alt="">
             </div>
             <p>Grain Processing Machine</p>
         </div>
-        <div>
+        <div class="click">
             <div>
                 <img src="https://static1.industrybuying.com/category_small/2022/11/tillers-and-cultivator-15349-1669116172726.webp" alt="">
             </div>
             <p>Tillers and Cultivator</p>
         </div>
-        <div>
+        <div class="click">
             <div>
                 <img src="https://static1.industrybuying.com/category_small/2022/11/brush-cutter-and-accessories-2387-1669114282645.webp" alt="">
             </div>
             <p>Brush Cutter and Accessories</p>
         </div>
-        <div>
+        <div class="click">
             <div>
                 <img src="https://static1.industrybuying.com/category_small/2022/11/chaff-cutter-6234-1669114298515.webp" alt="">
             </div>
@@ -370,7 +370,14 @@ Agricultural Tools are equipment that are used in the fields to help with the ag
     </div>
         
 </body>
-
+<script>
+    let Clickevent = document.getElementsByClassName("click");
+    for(let i=0;i<Clickevent.length;i++){
+        Clickevent[i].addEventListener("click",()=>{
+            window.location.href="ProductsPage.html"
+        })
+    }
+</script>
 </html>
 <script src="ImageSlide.js"></script>
 <script src="https://kit.fontawesome.com/e1dbf596d0.js" crossorigin="anonymous"></script>

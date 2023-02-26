@@ -72,6 +72,7 @@ addProduct.addEventListener("submit",(e)=>{
    AddProduct();
    
    addProduct.reset();
+ 
    
 });
 
@@ -102,7 +103,7 @@ updatePrice.addEventListener("submit",(e)=>{
     
      })
 
-
+   updatePrice.reset();
 });
 
 let updateFullDetails = document.getElementById("updateProduct");
@@ -133,6 +134,7 @@ updateFullDetails.addEventListener("submit",(e)=>{
         "image": NEWIMG
       })
      })
+     updateFullDetails.reset();
 })
 
 
@@ -162,7 +164,7 @@ async function AddProduct(){
       })
      
     })
-    displayAsCards(FetchedData);
+    fetchData();
   } catch (error) {
     console.log(error);
   }
@@ -174,7 +176,7 @@ async function DeleteProduct(){
     let req = await fetch(`https://iris-conscious-potential.glitch.me/products/${productId}`,{
     method:"DELETE"
    })
-   displayAsCards(FetchedData);
+ fetchData();
   } catch (error) {
     console.log(error);
   }

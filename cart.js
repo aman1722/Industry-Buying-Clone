@@ -1,4 +1,4 @@
-let data = JSON.parse( localStorage.getItem("products"));
+let data = JSON.parse( localStorage.getItem("Cart"));
 if(data==null){
   data = [];
 }
@@ -7,7 +7,7 @@ for(let i=0 ; i<data.length ; ++i){
 }
 
 let datacheck=data;
-localStorage.setItem("products" , JSON.stringify(data));
+localStorage.setItem("Cart" , JSON.stringify(data));
 let tbody = document.querySelector("tbody");
 function display(data){
     tbody.innerHTML="";
@@ -70,7 +70,7 @@ function display(data){
               document.getElementById("coupon").value="";
               alert("Coupon removed");
             }
-            localStorage.setItem("products" , JSON.stringify(data1));
+            localStorage.setItem("Cart" , JSON.stringify(data1));
             datacheck=data1;
             display(data1);
           }
@@ -91,7 +91,7 @@ function display(data){
         bt2.innerText="+";
         bt2.addEventListener("click" , function(){
           ++data[i].quantity;
-          localStorage.setItem("products" , JSON.stringify(data));
+          localStorage.setItem("Cart" , JSON.stringify(data));
           datacheck=data
           display(data);
           if(document.getElementById("coupon").value!==""){
@@ -155,7 +155,7 @@ document.getElementById("check").addEventListener("click", function(){
       if(document.getElementById("pincode").value!=="123456"){
         document.getElementById("sippingCharges").innerText=`Rs 1200`;
         let total=0;
-        let data1 =JSON.parse( localStorage.getItem("products"));
+        let data1 =JSON.parse( localStorage.getItem("Cart"));
         for(let i=0 ; i<data1.length ; ++i){
           total += Number(data1[i].price)*Number(data1[i].quantity);
         }
@@ -166,7 +166,7 @@ document.getElementById("check").addEventListener("click", function(){
       }else{
         document.getElementById("sippingCharges").innerText="FREE"
         let total=0;
-        let data1 = JSON.parse( localStorage.getItem("products"));
+        let data1 = JSON.parse( localStorage.getItem("Cart"));
         for(let i=0 ; i<data1.length ; ++i){
           total += Number(data1[i].price)*Number(data1[i].quantity);
         }
