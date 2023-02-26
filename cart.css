@@ -136,6 +136,7 @@ table>tbody>tr{
     background-color: orange;
     color: white;
     font-weight: bolder;
+    cursor: pointer;
 }
 #paymentSummary{
     margin-bottom: 15px; 
@@ -170,6 +171,7 @@ table>tbody>tr{
 #continueShopping{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     background-color: rgb(255, 255, 255);
+    cursor: pointer;
 }
 .heading{
     color: white;
@@ -339,7 +341,8 @@ table>tbody>tr{
         width: 100%;
     }
     #content>div:nth-child(1){
-        width: 90%;
+        width: 70%;
+        margin: auto;
     }
     #content>div:nth-child(2){
         display: none;

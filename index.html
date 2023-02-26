@@ -19,20 +19,23 @@
     <img src="images/induslogo.jpg" alt="">
     <!-- <h1>industry<span>buying</span></h1> -->
     <div id="dropdown">
-        <button id="dropbtn">All Categories</button>
+        <button id="dropbtn" onclick="toggleDropdown()">All Categories</button>
         <div id="dropdown-content">
-            <a href="">electrical</a>
-            <a href="">agricultural</a>
-            <a href="">mechanical</a>
-            <a href="">electrical</a>
-            <a href="">civil</a>
+            <a href="">Abrasives</a>
+            <a href="">Agricultural</a>
+            <a href="">Appliences</a>
+            <a href="">Bearings</a>
+            <a href="">Cleaning</a>
+            <a href="">Corporate gifts</a>
+            <a href="">Electrical</a>
+            <a href="">Electronics</a>
         </div>
     </div>
 
 
-    <form action="/search">
-        <input type="text" placeholder="seach product by title, supplier, category, brand etc..">
-        <button type="submit">GO</button>
+    <form id="search" action="/search">
+        <input id="inputsearch" type="text" placeholder="seach product by title, supplier, category, brand etc..">
+       <input type="submit" value="GO">
     </form>
     <div id="signIn">
         <img src="https://www.industrybuying.com/static/svg/signin-icon.svg" alt="">
@@ -4279,6 +4282,11 @@
 </div>
 </body>
 <script>
+
+   let seach=document.getElementById("search")
+let inputseach=document.getElementById("inputsearch")
+
+
     let images = document.getElementById("image-slider").getElementsByTagName("img");
 let current = 0;
 
@@ -4327,6 +4335,24 @@ function renderproduct(products){
 
     }
 }
+seach.addEventListener("submit", function(el){
+   el.preventDefault();
+
+   let btn=inputseach.value;
+   let data=response.filter((element)=>{
+    if(element.name.toUpperCase().includes(btn.toUpperCase())){
+        return true;
+    }else{
+        return false;
+    }
+   })
+
+   renderproduct(data)
+})
+
+
+
+
 
 })
 
@@ -4347,6 +4373,33 @@ observer.observe(footer);
 
 
 
+
+
+
+
+function toggleDropdown() {
+  var dropdown = document.getElementById("dropdown");
+  var dropdownContent = document.getElementById("dropdown-content");
+  if (dropdownContent.style.display === "flex") {
+    dropdownContent.style.display = "none";
+  } else {
+    dropdownContent.style.display = "flex";
+  }
+}
+
+// window.onclick = function(event) {
+//   var dropdown = document.getElementById("dropdown");
+//   var dropdownContent = document.getElementById("dropdown-content");
+//   if (!event.target.matches('#dropbtn') && dropdownContent.style.display === "block") {
+//     dropdownContent.style.display = "none";
+//   }
+// }
+
+
+
+
+
 </script>
 
 </html>
+<!-- <script src="productPage.js"></script>ript> -->
