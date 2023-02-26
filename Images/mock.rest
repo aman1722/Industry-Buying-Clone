@@ -1,0 +1,35 @@
+GET https://frantic-gaiters-pig.cyclic.app/users
+
+
+###
+POST https://iris-conscious-potential.glitch.me/users
+Content-Type: application/json
+
+{
+  "username": "Aditya",
+  "password": "aditya",
+  "email": "aditya@mail.com",
+  "firstname": "aditya",
+  "lastname": "khare",
+  "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/762.jpg"
+}
+
+
+###
+GET https://frantic-gaiters-pig.cyclic.app/products
+
+
+
+###
+POST https://frantic-gaiters-pig.cyclic.app/products
+Content-Type: application/json
+{
+    "name": "Mill Machine",
+    "title": "By AgriPro",
+    "category": "IB POWER BRAND",
+    "Description": "AgriPro 3 HP Butterfly Combined Rice Mill Machine without Motor APCRM6N9FC",
+    "price": 19800,
+    "rating": "4",
+    "inStock": true,
+    "image": "https://static1.industrybuying.com/products/agriculture-garden-landscaping/grain-processing-machine/AGR.GRA.82125517_1670416542273.webp"
+  }
