@@ -1,96 +1,13 @@
-let data = [
-      {
-        "name": "Compressor",
-        "title": "By AgriPro",
-        "category": "IB POWER BRAND",
-        "Description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
-        "price": 10800,
-        "rating": "4.5",
-        "inStock": true,
-        "id": "2",
-        "image": "https://static1.industrybuying.com/products/pneumatics/air-compressors/air-tank-compressor/PNE.AIR.24347772_1668115052521.webp"
-      },
-      {
-        "name": "Pressure POWER",
-        "title": "By AgriPro",
-        "category": "IB POWER BRAND",
-        "Description": "Powerwash High Pressure Power Sprayer PW 280 with 6 Months Warranty",
-        "price": 40001,
-        "rating": "3.5",
-        "inStock": true,
-        "id": "3",
-        "image": "https://static1.industrybuying.com/products/cleaning/pressure-washer/CLE.PRE.53146602_1668052244969.webp"
-      },
-      {
-        "name": "Gayle Hoeger MD",
-        "title": "By AgriPro",
-        "category": "IB POWER BRAND",
-        "Description": "Fulcrum 2 Ton 3Mtr Chain Pulley Block 2T3M",
-        "price": 3008,
-        "rating": "3",
-        "inStock": true,
-        "id": "4",
-        "image": "https://static1.industrybuying.com/products/material-handling-and-packaging/chain-pulley-blocks-and-accessories/chain-pulley-block/MAT.CHA.91518751_1667990374012.webp"
-      },
-      {
-        "name": "Tina Vandervort",
-        "title": "By AgriPro",
-        "category": "Best Sellers",
-        "Description": "Voltas Floor Mounted Water Dispenser Minimagic Pure-F",
-        "price": 9002,
-        "rating": "4",
-        "inStock": true,
-        "id": "5",
-        "image": "https://static1.industrybuying.com/products/furniture-hospitality-and-food-service/water-dispensers/FUR.WAT.14570895_1667958140407.webp"
-      },
-      {
-        "name": "Core/Solid",
-        "title": "By AgriPro",
-        "category": "Best Sellers",
-        "Description": "iBELL M200-105 IGBT Inverter 2 in 1 Flux Core/Solid Wire MAG Welding Machine with 1 Year Warranty",
-        "price": 12002,
-        "rating": "4.3",
-        "inStock": true,
-        "id": "6",
-        "image": "https://static1.industrybuying.com/products/welding/welding-machine/arc-welding-machine/WEL.ARC.65308964_1668172023800.webp"
-      },
-      {
-        "name": "Pressure POWER",
-        "title": "By AgriPro",
-        "category": "IB POWER BRAND",
-        "Description": "Powerwash High Pressure Power Sprayer PW 280 with 6 Months Warranty",
-        "price": 40001,
-        "rating": "3.5",
-        "inStock": true,
-        "id": "80",
-        "image": "https://static1.industrybuying.com/products/cleaning/pressure-washer/CLE.PRE.53146602_1668052244969.webp"
-      },
-      {
-        "name": "Pressure POWER",
-        "title": "By AgriPro",
-        "category": "IB POWER BRAND",
-        "Description": "Powerwash High Pressure Power Sprayer PW 280 with 6 Months Warranty",
-        "price": 40001,
-        "rating": "3.5",
-        "inStock": true,
-        "id": "52",
-        "image": "https://static1.industrybuying.com/products/cleaning/pressure-washer/CLE.PRE.53146602_1668052244969.webp"
-      },
-      {
-        "name": "Pressure POWER",
-        "title": "By AgriPro",
-        "category": "IB POWER BRAND",
-        "Description": "Powerwash High Pressure Power Sprayer PW 280 with 6 Months Warranty",
-        "price": 40001,
-        "rating": "3.5",
-        "inStock": true,
-        "id": "89",
-        "image": "https://static1.industrybuying.com/products/cleaning/pressure-washer/CLE.PRE.53146602_1668052244969.webp"
-      }
-];
+let data = JSON.parse( localStorage.getItem("products"));
+if(data==null){
+  data = [];
+}
 for(let i=0 ; i<data.length ; ++i){
   data[i]["quantity"] = 1;
 }
+
+let datacheck=data;
+localStorage.setItem("products" , JSON.stringify(data));
 let tbody = document.querySelector("tbody");
 function display(data){
     tbody.innerHTML="";
@@ -149,10 +66,17 @@ function display(data){
                 return true;
               }
             });
+            if(document.getElementById("coupon").value!==""){
+              document.getElementById("coupon").value="";
+              alert("Coupon removed");
+            }
+            localStorage.setItem("products" , JSON.stringify(data1));
+            datacheck=data1;
             display(data1);
           }
           else{
             --data[i].quantity;
+            datacheck=data
             display(data);
             if(document.getElementById("coupon").value!==""){
               document.getElementById("coupon").value="";
@@ -167,6 +91,8 @@ function display(data){
         bt2.innerText="+";
         bt2.addEventListener("click" , function(){
           ++data[i].quantity;
+          localStorage.setItem("products" , JSON.stringify(data));
+          datacheck=data
           display(data);
           if(document.getElementById("coupon").value!==""){
             document.getElementById("coupon").value="";
@@ -203,19 +129,22 @@ function total(data){
   document.getElementById("aamount").innerText=`Rs ${total}`;
 }
 
-
 document.getElementById("btnCoupon").addEventListener("click", function(){
-  if(document.getElementById("coupon").value==="Masai40"){
-    let total=0;
-    for(let i=0 ; i<data.length ; ++i){
-      total += Number(data[i].price)*Number(data[i].quantity);
+  let total=0;
+  for(let i=0 ; i<data.length ; ++i){
+    total += Number(data[i].price)*Number(data[i].quantity);
+    if(document.getElementById("sippingCharges").innerText!=="Free"){
+      total+=1200;
     }
+  }
+  if(document.getElementById("coupon").value==="masai" && total!==0){
     total -= Math.ceil(total*.4);
     document.getElementById("total").innerText =`Rs ${total}`;
     document.getElementById("subTotal").innerText =`Rs ${total}`;
     document.getElementById("aamount").innerText=`Rs ${total}`;
+    alert("Coupon applied");
   }else{
-    alert("Invalid Coupon");
+    alert("Invalid Coupon or total");
   }
 });
 
@@ -226,20 +155,26 @@ document.getElementById("check").addEventListener("click", function(){
       if(document.getElementById("pincode").value!=="123456"){
         document.getElementById("sippingCharges").innerText=`Rs 1200`;
         let total=0;
-        for(let i=0 ; i<data.length ; ++i){
-          total += Number(data[i].price)*Number(data[i].quantity);
+        let data1 =JSON.parse( localStorage.getItem("products"));
+        for(let i=0 ; i<data1.length ; ++i){
+          total += Number(data1[i].price)*Number(data1[i].quantity);
         }
-        document.getElementById("total").innerText =`Rs ${total+1200}`;
-        document.getElementById("subTotal").innerText =`Rs ${total}`;
+        if(total>0){
+          document.getElementById("total").innerText =`Rs ${total+1200}`;
+          document.getElementById("subTotal").innerText =`Rs ${total}`;
+        }
       }else{
         document.getElementById("sippingCharges").innerText="FREE"
         let total=0;
-        for(let i=0 ; i<data.length ; ++i){
-          total += Number(data[i].price)*Number(data[i].quantity);
+        let data1 = JSON.parse( localStorage.getItem("products"));
+        for(let i=0 ; i<data1.length ; ++i){
+          total += Number(data1[i].price)*Number(data1[i].quantity);
         }
-        document.getElementById("total").innerText =`Rs ${total}`;
-        document.getElementById("subTotal").innerText =`Rs ${total}`;
-          } 
+        if(total>0){
+          document.getElementById("total").innerText =`Rs ${total}`;
+          document.getElementById("subTotal").innerText =`Rs ${total}`;
+        }
+        } 
   }else{
     alert("Invalid Pincode");
   }
@@ -278,6 +213,29 @@ document.getElementById("form").addEventListener("submit", function(el){
   }
 })
 
+
+let btnPlace= document.getElementById("placeOrder");
+btnPlace.addEventListener("click", function(){
+  if(datacheck.length>0){
+    let prices ={
+      subTotal:document.getElementById("subTotal").innerText,
+      shippingCharges:document.getElementById("sippingCharges").innerText,
+      totalPrice:document.getElementById("total").innerText,
+    }
+    localStorage.setItem("prices", JSON.stringify(prices));
+    window.location.href="payment.html";
+    
+  }
+  else{
+    alert("Cart can't be empty!");
+  }
+});
+
+
+let btncontinue= document.getElementById("continueShopping");
+btncontinue.addEventListener("click", function(){
+  window.location.href="index.html";
+});
 
 
 
