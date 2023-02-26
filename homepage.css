@@ -49,6 +49,7 @@ margin-left: 0px;
 nav>img{
 
 width: 19%;
+height: 100%;
 
 
 }
@@ -132,6 +133,7 @@ border-radius: 3px;
     margin-bottom: 10px;
 
 }
+
 #dropdown{
     z-index: 2;
 }
@@ -164,6 +166,33 @@ color: white;
 margin-left: 5px;
 font-family: Georgia, 'Times New Roman', Times, serif;
 }
+#signInContent{
+
+    display: flex;
+    flex-direction: column;
+    
+    position: absolute;
+    left: 57%;
+    top: 60px;
+    background-color: rgb(255, 255, 255);
+   
+    min-width: 160px;
+    
+    z-index: 2;
+    display: none;
+    border-radius: 3px;
+    }
+    #signInContent>a{
+        color: rgb(2, 2, 2);
+        font-size: 15px;
+        margin-top: 5px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        text-decoration: none;
+        margin-left: 7px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    
+    }
 #track{
 margin-left: 35px;
 display: flex;
@@ -735,3 +764,136 @@ margin-top: 0px;
 #end>p{
 color: gray;
 }
+
+
+@media all and (max-width:800px) and (min-width:200px){
+#categories{
+    display: none;
+    width: 0px;
+    position: relative;
+    height: 0px;
+}
+#categories>a{
+    display: none;
+    font-size: 0px;
+}
+
+nav>form>input{
+    display: none;
+}
+#megaDropdown{
+    display: none;
+}
+.home{
+    width: 100%;
+    margin-left: 0px;
+}
+#image-slider{
+    width: 100%;
+    
+    
+}
+.mega-dropdown{
+    display: none;
+}
+.nav-lvl{
+    display: none;
+}
+.ad{
+    display: none;
+    width: 0px;
+    margin-left: 0px;
+}
+.product{
+    width: 100%;
+    margin-right: 10px;
+}
+#productApi{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+#api-products{
+    height: 2000px;
+}
+.product{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.home>div{
+    height: 800px;
+    margin-left: 10px;
+}
+#add{
+    display: none;
+}
+#all-categories>div{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#all-categories>div>a{
+    font-size: 10px;
+}
+footer>div:nth-last-child(4){
+    display: none;
+   margin-right: 10px;
+}
+footer>div:nth-last-child(2){
+    display: none;
+}
+footer>div>p{
+    display: none;
+}
+#dropbtn{
+  margin-left: 0px;
+    width: 200px;
+    margin: auto;
+   
+}
+#container>div>a{
+    font-size: 10px;
+}
+#end{
+    display: none;
+}
+#contact{
+    display: none;
+}
+#end>p{
+    font-size: 0px;
+}
+#payment{
+    width: 100%;
+}
+nav{
+    position: fixed;
+    top: 0px;
+    display: flex;
+    justify-content: space-around;
+}
+nav>div{
+    margin-left: 0px;
+}
+nav>img{
+    margin-left: 0px;
+}
+#track{
+margin-left: 2px;
+margin-right: 2px;
+}
+#cart{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+#signIn{
+    margin-left: 5px;
+margin-right: 0px;
+
+}
+}
+
+
+
+
+
