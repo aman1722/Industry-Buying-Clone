@@ -245,3 +245,4 @@ document.getElementById("sub").addEventListener("click", function(){
     alert("Wrong OTP");
   }
 })
+
