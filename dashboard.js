@@ -8,13 +8,13 @@ let orderCount = document.getElementById("totalOrders");
 
 
 ProductDiv.addEventListener("click",()=>{
-    window.location.href="products.html";
+    window.location.href="./products.html";
 });
 usersDiv.addEventListener("click",()=>{
-    window.location.href="users.html";
+    window.location.href="./users.html";
 });
 ordersDiv.addEventListener("click",()=>{
-    window.location.href="orders.html";
+    window.location.href="./orders.html";
 });
 
 
