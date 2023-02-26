@@ -1,96 +1,10 @@
 let AddressData= JSON.parse( localStorage.getItem("addressData")) ||[];
 
 
-let data = [
-    {
-      "name": "Compressor",
-      "title": "By AgriPro",
-      "category": "IB POWER BRAND",
-      "Description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
-      "price": 10800,
-      "rating": "4.5",
-      "inStock": true,
-      "id": "2",
-      "image": "https://static1.industrybuying.com/products/pneumatics/air-compressors/air-tank-compressor/PNE.AIR.24347772_1668115052521.webp"
-    },
-    {
-      "name": "Pressure POWER",
-      "title": "By AgriPro",
-      "category": "IB POWER BRAND",
-      "Description": "Powerwash High Pressure Power Sprayer PW 280 with 6 Months Warranty",
-      "price": 40001,
-      "rating": "3.5",
-      "inStock": true,
-      "id": "3",
-      "image": "https://static1.industrybuying.com/products/cleaning/pressure-washer/CLE.PRE.53146602_1668052244969.webp"
-    },
-    {
-      "name": "Gayle Hoeger MD",
-      "title": "By AgriPro",
-      "category": "IB POWER BRAND",
-      "Description": "Fulcrum 2 Ton 3Mtr Chain Pulley Block 2T3M",
-      "price": 3008,
-      "rating": "3",
-      "inStock": true,
-      "id": "4",
-      "image": "https://static1.industrybuying.com/products/material-handling-and-packaging/chain-pulley-blocks-and-accessories/chain-pulley-block/MAT.CHA.91518751_1667990374012.webp"
-    },
-    {
-      "name": "Tina Vandervort",
-      "title": "By AgriPro",
-      "category": "Best Sellers",
-      "Description": "Voltas Floor Mounted Water Dispenser Minimagic Pure-F",
-      "price": 9002,
-      "rating": "4",
-      "inStock": true,
-      "id": "5",
-      "image": "https://static1.industrybuying.com/products/furniture-hospitality-and-food-service/water-dispensers/FUR.WAT.14570895_1667958140407.webp"
-    },
-    {
-      "name": "Core/Solid",
-      "title": "By AgriPro",
-      "category": "Best Sellers",
-      "Description": "iBELL M200-105 IGBT Inverter 2 in 1 Flux Core/Solid Wire MAG Welding Machine with 1 Year Warranty",
-      "price": 12002,
-      "rating": "4.3",
-      "inStock": true,
-      "id": "6",
-      "image": "https://static1.industrybuying.com/products/welding/welding-machine/arc-welding-machine/WEL.ARC.65308964_1668172023800.webp"
-    },
-    {
-      "name": "Pressure POWER",
-      "title": "By AgriPro",
-      "category": "IB POWER BRAND",
-      "Description": "Powerwash High Pressure Power Sprayer PW 280 with 6 Months Warranty",
-      "price": 40001,
-      "rating": "3.5",
-      "inStock": true,
-      "id": "80",
-      "image": "https://static1.industrybuying.com/products/cleaning/pressure-washer/CLE.PRE.53146602_1668052244969.webp"
-    },
-    {
-      "name": "Pressure POWER",
-      "title": "By AgriPro",
-      "category": "IB POWER BRAND",
-      "Description": "Powerwash High Pressure Power Sprayer PW 280 with 6 Months Warranty",
-      "price": 40001,
-      "rating": "3.5",
-      "inStock": true,
-      "id": "52",
-      "image": "https://static1.industrybuying.com/products/cleaning/pressure-washer/CLE.PRE.53146602_1668052244969.webp"
-    },
-    {
-      "name": "Pressure POWER",
-      "title": "By AgriPro",
-      "category": "IB POWER BRAND",
-      "Description": "Powerwash High Pressure Power Sprayer PW 280 with 6 Months Warranty",
-      "price": 40001,
-      "rating": "3.5",
-      "inStock": true,
-      "id": "89",
-      "image": "https://static1.industrybuying.com/products/cleaning/pressure-washer/CLE.PRE.53146602_1668052244969.webp"
-    }
-];
+
+let data =  JSON.parse( localStorage.getItem("products")) ||[];
+
+
 let tbody = document.querySelector("tbody");
 function display(data){
   tbody.innerHTML="";
@@ -238,7 +152,7 @@ document.getElementById("sub").addEventListener("click", function(){
     setTimeout(()=>{
       window.location.href="index.html";
     },3000)
-
+    localStorage.clear();
   }
   else{
     document.getElementById("otp").value="";
@@ -246,3 +160,10 @@ document.getElementById("sub").addEventListener("click", function(){
   }
 })
 
+
+let prices =JSON.parse( localStorage.getItem("prices"));
+
+document.getElementById("subTotal").innerText= prices.subTotal;
+document.getElementById("shippingCarges").innerText= prices.shippingCharges;
+document.getElementById("total").innerText= prices.totalPrice;
+document.getElementById("aamount").innerText= prices.totalPrice;
