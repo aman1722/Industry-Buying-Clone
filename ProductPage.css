@@ -3,28 +3,52 @@
     padding: 0;
 }
 nav{
-    height: 84px;
     display: flex;
-    overflow: hidden;
-}
-#container{
     width: 100%;
+    height: 60px;
+    position: fixed;
+    z-index: 2;
+    top: 24px;
+    align-items: center;
+    overflow: hidden;
+    background-color: black;
+    
+    }
+    nav>form>button{
+        height: 35px;
+        border: none;
+        width: 50px;
+        border: none;
+        background-color: white;
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+        margin-left: 0px;
+        padding-left: 0px;
+        }
+
+
+#container{
+   width: 100%;
     display: flex;
-border: 2px solid green;
+/* border: 2px solid green; */
 }
 #categories{
-width: 20%;
+width: 19.9%;
 height: 480px;
-border: 2px solid black;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+/* border: 2px solid black; */
 position: fixed;
-
+top:84px;
 left: 0px;
 }
 #products{
 width: 100%;
 margin-left: 20%;
-border: 2px solid red;
+/* border: 2px solid red; */
 display: flex;
+margin-top: 100px;
 flex-direction: column;
 }
 #items{
@@ -32,32 +56,56 @@ width: 100%;
 /* height: 400px; */
 display: grid;
 grid-template-columns: repeat(4,1fr);
-border: 2px solid blue;
+grid-template-rows: auto;
+gap: 35px 20px;
+/* border: 2px solid blue; */
 }
 
 
-#products>div:nth-child(2) img
+#items img
 {
     width:60%;
 }
+#items p{
+    text-align:justify; 
+}
+
 #items>div
 {
     /* border:1px solid; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     /* width:100%; */
 }
 #items button{
     background-color: white;
-    border:0;
+   
 }
-#items button:hover{
+#items button:nth-child(1){
+    border: 1px solid orange;
+    color:orange;
+}
+
+#items button:nth-child(1):hover{
     background-color: orange;
-
+    color: white;
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
 }
-
+#items button:nth-child(2){
+    background-color:white; 
+    color: gray;
+    border:1px solid gray;
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+}
+#items button:nth-child(2):hover{
+    background-color:gray; 
+    color: white;
+    
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+}
 
 #products button
 {    
@@ -69,10 +117,18 @@ border: 2px solid blue;
 #items>div{
     text-align: center;
 }
-
-
 .popularity{
-height: 150px;
+/* height: 0px; */
+/* position: relative; */
+text-align: right;
 width:100%;
-border:1px solid rgb(227, 10, 217); 
+/* border:1px solid rgb(227, 10, 217);  */
 }
+.popularity>select{
+    padding: 10px;
+    border: 0;
+}
+.popularity>select>option{
+    padding: 10px 15px;
+}
+
