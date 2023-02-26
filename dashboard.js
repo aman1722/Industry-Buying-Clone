@@ -8,18 +8,18 @@ let orderCount = document.getElementById("totalOrders");
 
 
 ProductDiv.addEventListener("click",()=>{
-    window.location.href="products.html";
+    window.location.href="./products.html";
 });
 usersDiv.addEventListener("click",()=>{
-    window.location.href="users.html";
+    window.location.href="./users.html";
 });
 ordersDiv.addEventListener("click",()=>{
-    window.location.href="orders.html";
+    window.location.href="./orders.html";
 });
 
 
 function fetchProducts(){
-    fetch("https://frantic-gaiters-pig.cyclic.app/products")
+    fetch("https://iris-conscious-potential.glitch.me/products")
     .then((res)=>{
      return res.json();
     })
@@ -30,7 +30,7 @@ function fetchProducts(){
 }
 
 function fetchUsers(){
-    fetch("https://frantic-gaiters-pig.cyclic.app/users")
+    fetch("https://iris-conscious-potential.glitch.me/users")
     .then((res)=>{
      return res.json();
     })
@@ -41,7 +41,7 @@ function fetchUsers(){
 }
 
 function fetchOrders(){
-    fetch("https://frantic-gaiters-pig.cyclic.app/orders")
+    fetch("https://iris-conscious-potential.glitch.me/orders")
     .then((res)=>{
      return res.json();
     })

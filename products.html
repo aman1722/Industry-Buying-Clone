@@ -14,7 +14,7 @@
 <body>
   <div id="nav2" class="nav2">
     <div>
-      <img src="Images/logo.jpg" alt="">
+      <img src="Images/induslogo.jpg" alt="">
   </div>
   <div>
     <img src="Images/burgerIcon.png" alt="">
@@ -24,7 +24,7 @@
     <div class="container">
       <div class="options">
         <div>
-            <img src="Images/logo.jpg" alt="">
+            <img src="Images/induslogo.jpg" alt="">
         </div>
         <div><h3 id="Products">Products</h3></div>
         <div><h3 id="users">Users</h3></div>
@@ -42,12 +42,63 @@
         <div id="data" class="data">
         <div class="crud">
         <!-- Crud Operations Form  -->
-        <button>Add New Products</button>
+        <div class="crudForms">
+          <h2>Add A New Product!</h2>
+        <form id="addProduct">
+         <input id="name" placeholder="Enter Name..." type="text" required><br>
+         <input id="title" placeholder="Enter Title..." type="text" required><br>
+         <input id="category" placeholder="Enter Category..." type="text" required><br>
+         <input id="desc" placeholder="Enter Description" type="text" required><br>
+         <input id="price" placeholder="Enter price..." type="text" required><br>
+         <input type="text" placeholder="Provide URL..." id="imgUrl" required><br>
+         <input type="submit">
+        </form>
+        </div>
+       
+        <div class="crudForms">
+          <h2>Delete A Product</h2>
+          <form id="deleteProduct">
+            <input id="ID" placeholder="Please Enter Id...." type="text" required>
+            <input type="submit" value="Delete">
+          </form>
+        </div>
+        
+        <div class="crudForms">
+          <h2>Update Price</h2>
+          <form id="updatePrice">
+            <input id="productID" placeholder="Please Enter Id...." type="text" required>
+            <input id="updatedPrice" placeholder="Enter Updated Price..." type="number" required>
+            <input type="submit" value="Update Price">
+          </form>
+        </div>
+       
+        <div class="crudForms">
+          <h2>Update Product Details</h2>
+        <form id="updateProduct">
+         <input type="text" placeholder="Enter Product ID..." name="" id="ProID" required>
+         <input id="newname" placeholder="Enter Name..." type="text" required><br>
+         <input id="newtitle" placeholder="Enter Title..." type="text" required><br>
+         <input id="newcategory" placeholder="Enter Category..." type="text" required><br>
+         <input id="newdesc" placeholder="Enter Description" type="text" required><br>
+         <input id="Newprice" placeholder="Enter price..." type="text" required><br>
+         <input type="text" placeholder="Provide URL..." id="imgUrl" required><br>
+         <input type="submit">
+        </form>
+        </div>
+
         </div>
         <div id="display" class="display">
+         
         <!-- Append Products Data -->
+       
         </div>
         </div>
+        <div style="display: flex; width: 100%; height: 50px;">
+         
+          <div style="width: 30%; height: auto; background-color: #EEEEEE;"></div>
+          <div style="width: 70%; height: auto;" id="buttonSection"></div>
+        </div>
+        
       </div>
     </div>
 </body>
