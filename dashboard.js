@@ -57,6 +57,11 @@ function fetchOrders(){
 }
 
 
+let LogoutBtn = document.getElementById("logout");
+LogoutBtn.addEventListener("click",()=>{
+    window.location.href="index.html";
+})
+
 fetchProducts();
 fetchUsers();
 fetchOrders();

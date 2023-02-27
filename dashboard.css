@@ -282,3 +282,7 @@ nav>h3{
 .greet{
     display: none;
 }
+#logout:hover{
+   color: #FF8F00;
+   cursor: pointer;
+}

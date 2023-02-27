@@ -222,3 +222,7 @@ th{
 .deleteBtn:hover{
     cursor: pointer;
 }
+#logout:hover{
+    color: #FF8F00;
+    cursor: pointer;
+ }

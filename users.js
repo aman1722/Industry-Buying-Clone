@@ -82,3 +82,7 @@ usersDiv.addEventListener("click",()=>{
 ordersDiv.addEventListener("click",()=>{
   window.location.href="./orders.html";
 });
+let LogoutBtn = document.getElementById("logout");
+LogoutBtn.addEventListener("click",()=>{
+    window.location.href="index.html";
+})
