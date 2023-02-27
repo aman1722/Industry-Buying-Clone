@@ -6,6 +6,7 @@ form.addEventListener("submit", async function(el){
     el.preventDefault();
     try {
         if(email.value==="admin@industech.com" && password.value==="admin"){
+            alert("Welcome Admin!")
             window.location.href="dashboard.html"
         }else{
             let req = await fetch("https://iris-conscious-potential.glitch.me/users");

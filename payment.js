@@ -140,14 +140,13 @@ form.addEventListener("submit", function(el){
 
 async function pushData(data){
   try {
-    let res = await fetch("https://iris-conscious-potential.glitch.me/orders", {
+    await fetch("https://iris-conscious-potential.glitch.me/orders", {
       method:"POST",
       headers:{
           "Content-Type":"Application/json"
       },
       body: JSON.stringify(data)
-    });
-    console.log(res);  
+    }); 
   } 
   catch (error) {
     console.log(error);
@@ -163,15 +162,19 @@ document.getElementById("sub").addEventListener("click", function(){
     document.querySelector(".otpPop").classList.remove("showOtp");
     document.getElementById("otp").value="";
     alert("purchase Successful");
+    let obj =JSON.parse( localStorage.getItem("loggedINUser"));
     setTimeout(()=>{
       window.location.href="index.html";
     },3000)
-    let obj =JSON.parse( localStorage.getItem("loggedInUser"));
+
     let user = obj.username;
+    // data[0]["username"]= user;
+    // console.log(data[0]);
+    // pushData(data[0]);
+
     for(let i=0 ; i<data.length ; ++i){
       data[i]["username"]= user;
-      let finalobj = data[i];
-      pushData(finalobj);
+      pushData(data[i]);
     }
     setTimeout(function(){
       localStorage.clear();

@@ -63,3 +63,16 @@ function displayUser(data){
     
     })
 }
+async function DeleteProduct(id){
+    try {
+      let req = await fetch(`https://iris-conscious-potential.glitch.me/orders/${id}`,{
+      method:"DELETE"
+     })
+    users();
+    } catch (error) {
+      console.log(error);
+    }
+    
+  
+     
+  }

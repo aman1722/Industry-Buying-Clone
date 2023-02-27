@@ -5,7 +5,7 @@ if(data==null){
 for(let i=0 ; i<data.length ; ++i){
   data[i]["quantity"] = 1;
 }
-
+let amount= 0;
 let datacheck=data;
 localStorage.setItem("Cart" , JSON.stringify(data));
 let tbody = document.querySelector("tbody");
@@ -123,6 +123,7 @@ function total(data){
   let total=0;
   for(let i=0 ; i<data.length ; ++i){
     total += Number(data[i].price)*Number(data[i].quantity);
+    amount=total;
   }
   document.getElementById("total").innerText =`Rs ${total}`;
   document.getElementById("subTotal").innerText =`Rs ${total}`;
@@ -130,18 +131,12 @@ function total(data){
 }
 
 document.getElementById("btnCoupon").addEventListener("click", function(){
-  let total=0;
-  for(let i=0 ; i<data.length ; ++i){
-    total += Number(data[i].price)*Number(data[i].quantity);
-    if(document.getElementById("sippingCharges").innerText!=="Free"){
-      total+=1200;
-    }
-  }
-  if(document.getElementById("coupon").value==="masai" && total!==0){
-    total -= Math.ceil(total*.4);
-    document.getElementById("total").innerText =`Rs ${total}`;
-    document.getElementById("subTotal").innerText =`Rs ${total}`;
-    document.getElementById("aamount").innerText=`Rs ${total}`;
+  let total1=amount;
+  if(document.getElementById("coupon").value==="masai" && total1!==0){
+    total1 -= Math.ceil(total1*.4);
+    document.getElementById("total").innerText =`Rs ${total1}`;
+    document.getElementById("subTotal").innerText =`Rs ${total1}`;
+    document.getElementById("aamount").innerText=`Rs ${total1}`;
     alert("Coupon applied");
   }else{
     alert("Invalid Coupon or total");
@@ -154,27 +149,32 @@ document.getElementById("check").addEventListener("click", function(){
   if(document.getElementById("pincode").value.length===6){
       if(document.getElementById("pincode").value!=="123456"){
         document.getElementById("sippingCharges").innerText=`Rs 1200`;
-        let total=0;
+        let total1=0;
         let data1 =JSON.parse( localStorage.getItem("Cart"));
         for(let i=0 ; i<data1.length ; ++i){
-          total += Number(data1[i].price)*Number(data1[i].quantity);
+          total1 += Number(data1[i].price)*Number(data1[i].quantity);
         }
-        if(total>0){
-          document.getElementById("total").innerText =`Rs ${total+1200}`;
-          document.getElementById("subTotal").innerText =`Rs ${total}`;
+        if(total1>0){
+          document.getElementById("total").innerText =`Rs ${total1+1200}`;
+          document.getElementById("subTotal").innerText =`Rs ${total1}`;
+          amount=total1+1200;
+
         }
-      }else{
+      }else if(document.getElementById("pincode").value=="123456"){
         document.getElementById("sippingCharges").innerText="FREE"
-        let total=0;
+        let total1=0;
         let data1 = JSON.parse( localStorage.getItem("Cart"));
         for(let i=0 ; i<data1.length ; ++i){
-          total += Number(data1[i].price)*Number(data1[i].quantity);
+          total1 += Number(data1[i].price)*Number(data1[i].quantity);
         }
-        if(total>0){
-          document.getElementById("total").innerText =`Rs ${total}`;
-          document.getElementById("subTotal").innerText =`Rs ${total}`;
+        if(total1>0){
+          document.getElementById("total").innerText =`Rs ${total1}`;
+          document.getElementById("subTotal").innerText =`Rs ${total1}`;
+          amount = total1;
+        }else{
+          alert("Invalid Pincode");
         }
-        } 
+      } 
   }else{
     alert("Invalid Pincode");
   }
@@ -212,10 +212,10 @@ document.getElementById("form").addEventListener("submit", function(el){
     alert("Invalid Pincode");
   }
 })
-
-
+let userData=JSON.parse(localStorage.getItem("loggedINUser"));
 let btnPlace= document.getElementById("placeOrder");
 btnPlace.addEventListener("click", function(){
+if(userData){
   if(datacheck.length>0){
     let prices ={
       subTotal:document.getElementById("subTotal").innerText,
@@ -229,6 +229,13 @@ btnPlace.addEventListener("click", function(){
   else{
     alert("Cart can't be empty!");
   }
+}else{
+  alert("please login first!");
+  setTimeout(()=>{
+    window.location.href="sign-In.html"
+  },2000)
+}
+  
 });
 
 

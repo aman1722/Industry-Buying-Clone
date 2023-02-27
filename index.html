@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>IndusTech</title>
     <link rel="stylesheet" href="homepage.css">
-    
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
 </head>
 <body>
     <div id="contact">
@@ -39,14 +42,14 @@
     </form>
     <div id="signIn">
         <img id="signInBtn" onclick="signInDropdown()" src="https://www.industrybuying.com/static/svg/signin-icon.svg" alt="">
-        <!-- <p>Sign-In</p> -->
+        <span id="signin">Sign-In</span> 
         <div id="signInContent">
           <a href="./sign-up.html">My profile</a>
           <a href="./cart.html">My Orders</a>
           <a href="">Pay Later</a>
           <a href="">Purchase List</a>
           <a href="">Quick Order</a>
-          <a href="">Logout</a>
+          <div id="logout">Logout</div>
         </div>
     </div>
     <div id="track">
@@ -4412,9 +4415,22 @@ window.onclick = function(event) {
     dropdownContent.style.display = "none";
   }
 }
-
-
-
+let userData = JSON.parse(localStorage.getItem("loggedINUser"));
+let SignIN = document.getElementById("signin");
+if(userData){
+    SignIN.innerText=userData.username;
+}else{
+    SignIN.innerText="Sign-In"
+}
+ let logOutBtn = document.getElementById("logout");
+ logOutBtn.addEventListener("click",(e)=>{
+    e.preventDefault();
+    console.log("hlw!!")
+    localStorage.clear();
+    setTimeout(()=>{
+        window.location.reload();
+    },500)
+ })
 
 
 </script>

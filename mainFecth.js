@@ -139,6 +139,7 @@ function displayAsCards(data) {
 
 
        Addtocart.addEventListener("click",()=>{
+        
         let CartProducts = JSON.parse(localStorage.getItem("Cart"))||[];
         let isalreadyadd = false;
              for(let i=0;i<CartProducts.length;i++){
@@ -191,3 +192,10 @@ function paginationBtn(page){
     }
   }
 
+  let userData = JSON.parse(localStorage.getItem("loggedINUser"));
+  let SignIN = document.getElementById("signin");
+  if(userData){
+      SignIN.innerText=userData.username;
+  }else{
+      SignIN.innerText="Sign-In"
+  }

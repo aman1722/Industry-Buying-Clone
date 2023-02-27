@@ -44,7 +44,7 @@
         </form>
         <div id="signIn">
             <img src="https://www.industrybuying.com/static/svg/signin-icon.svg" alt="">
-            <p>Sign-In</p>
+            <span id="signin">Sign-In</span> 
         </div>
         <div id="track">
             <img  src="https://www.industrybuying.com/static/svg/track-order-icon.svg" alt="">
@@ -377,6 +377,13 @@ Agricultural Tools are equipment that are used in the fields to help with the ag
             window.location.href="mainFetch.html"
         })
     }
+    let userData = JSON.parse(localStorage.getItem("loggedINUser"));
+let SignIN = document.getElementById("signin");
+if(userData){
+    SignIN.innerText=userData.username;
+}else{
+    SignIN.innerText="Sign-In"
+}
 </script>
 </html>
 <script src="ImageSlide.js"></script>
