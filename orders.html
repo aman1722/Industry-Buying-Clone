@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <link rel="stylesheet" href="orders.css">
+</head>
+<body>
+    <div id="nav2" class="nav2">
+        <div>
+          <img src="Images/induslogo.jpg" alt="">
+      </div>
+      <div>
+        <img src="Images/burgerIcon.png" alt="">
+    </div>
+    </div>
+    <div id="greet" class="greet" style="color: black;"> <h3>Hey Admin! Welcome Back</h3> </div>
+        <div class="container">
+          <div class="options">
+            <div id="logo">
+                <img src="Images/induslogo.jpg" alt="">
+            </div>
+            <div><h3 id="Products">Products</h3></div>
+            <div><h3 id="users">Users</h3></div>
+            <div><h3 id="orders">orders</h3></div>
+          </div>
+          <div id="full-data" class="full-data">
+            <nav id="nav">
+                <h1>Recent Orders</h1>
+                <form action="/search">
+                    <input type="text" placeholder="search admin functions.......... ">
+                    <button type="submit">GO</button>
+                </form>
+                <h3>Hey Admin! Welcome Back</h3>
+            </nav>
+            <div id="data" class="data">
+              <div id="userData">
+                <!-- Append User Table -->
+                <table>
+                    <thead>
+                      <tr>
+                        <th>USERNAME</th>
+                        <th>PRODUCT</th>
+                        <th>PRICE</th>
+                        <th>PAYMENT STATUS</th>
+                        <th>ORDER ID</th>
+                        <th>CANCEL ORDER</th>
+                      </tr>
+                    </thead>
+                    <tbody id="order_table">
+                      <!-- Append your data here  -->
+                    </tbody>
+                  </table>              
+            </div>
+          </div>
+        </div>
+</body>
+<script src="orders.js"></script>
+</html>

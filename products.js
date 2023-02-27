@@ -1,5 +1,9 @@
 
-
+let redirect = document.getElementById("logo");
+redirect.addEventListener("click",()=>{
+  // console.loh("h")
+    window.location.href="dashboard.html"
+})
 
 let FetchedData =[];
 
@@ -19,8 +23,9 @@ async function fetchData(page=1){
   try {
    const user_list = await fetch(`https://iris-conscious-potential.glitch.me/products?_limit=9&_page=${page}`);
    const totalItem = user_list.headers.get('X-Total-Count');
-   const totalPages = Math.ceil(totalItem/10);
+   const totalPages = Math.ceil(totalItem/9);
    const data = await user_list.json();
+   console.log(totalPages)
    displayAsCards(data)
    paginationBtn(totalPages);
   } catch (error) {
@@ -89,10 +94,20 @@ let updatePrice = document.getElementById("updatePrice");
 
 updatePrice.addEventListener("submit",(e)=>{
      e.preventDefault();
-     let productId = document.getElementById("productID").value;
-     let updatedPrice = document.getElementById("updatedPrice").value;
+     UpdatePrice();
 
-     fetch(`https://iris-conscious-potential.glitch.me/products/${productId}`,{
+    
+
+   updatePrice.reset();
+   
+});
+
+async function UpdatePrice(){
+ 
+  try {
+    let productId = document.getElementById("productID").value;
+    let updatedPrice = document.getElementById("updatedPrice").value;
+    let req= await  fetch(`https://iris-conscious-potential.glitch.me/products/${productId}`,{
       method:"PATCH",
       headers:{
         "Content-Type":"application/json"
@@ -102,23 +117,36 @@ updatePrice.addEventListener("submit",(e)=>{
       })
     
      })
+     fetchData();
+  } catch (error) {
+    console.log(error);
+  }
+}
 
-   updatePrice.reset();
-});
+
 
 let updateFullDetails = document.getElementById("updateProduct");
 updateFullDetails.addEventListener("submit",(e)=>{
      e.preventDefault();
-     let proid = document.getElementById("ProID").value;
-     let Newname = document.getElementById("newname").value;
-     let Newtitle = document.getElementById("newtitle").value;
-     let Newcategory = document.getElementById("newcategory").value;
-     let Newdesc = document.getElementById("newdesc").value;
-     let NEWIMG = document.getElementById("imgUrl").value;
-     let Newprice = document.getElementById("Newprice").value;
+    
   
 
-     fetch(`https://iris-conscious-potential.glitch.me/products/${proid}`,{
+     UpdateFullDetalis();
+     updateFullDetails.reset();
+   
+})
+
+async function UpdateFullDetalis(){
+  try {
+    let proid = document.getElementById("ProID").value;
+    let Newname = document.getElementById("newname").value;
+    let Newtitle = document.getElementById("newtitle").value;
+    let Newcategory = document.getElementById("newcategory").value;
+    let Newdesc = document.getElementById("newdesc").value;
+    let NEWIMG = document.getElementById("imgUrl").value;
+    let Newprice = document.getElementById("Newprice").value;
+
+    let req = await fetch(`https://iris-conscious-potential.glitch.me/products/${proid}`,{
       method:"PUT",
       headers:{
         "Content-Type":"application/json"
@@ -134,9 +162,11 @@ updateFullDetails.addEventListener("submit",(e)=>{
         "image": NEWIMG
       })
      })
-     updateFullDetails.reset();
-})
-
+     fetchData();
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 async function AddProduct(){
 
@@ -176,7 +206,7 @@ async function DeleteProduct(){
     let req = await fetch(`https://iris-conscious-potential.glitch.me/products/${productId}`,{
     method:"DELETE"
    })
- fetchData();
+  fetchData();
   } catch (error) {
     console.log(error);
   }
@@ -211,6 +241,18 @@ function paginationBtn(page){
 
 
 
+let ProductDiv = document.getElementById("Products");
+let usersDiv = document.getElementById("users");
+let ordersDiv = document.getElementById("orders");
+ProductDiv.addEventListener("click",()=>{
+  window.location.href="./products.html";
+});
+usersDiv.addEventListener("click",()=>{
+  window.location.href="./users.html";
+});
+ordersDiv.addEventListener("click",()=>{
+  window.location.href="./orders.html";
+});
 
 
 
@@ -228,4 +270,3 @@ function paginationBtn(page){
 
 
 
-// fetchAndRenderData();

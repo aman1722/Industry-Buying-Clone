@@ -6,6 +6,11 @@ let productCount = document.getElementById("totalPro");
 let userCount = document.getElementById("totalUser");
 let orderCount = document.getElementById("totalOrders");
 
+let redirect = document.getElementById("logo");
+redirect.addEventListener("click",()=>{
+    window.location.href="dashboard.html"
+})
+
 
 ProductDiv.addEventListener("click",()=>{
     window.location.href="./products.html";
