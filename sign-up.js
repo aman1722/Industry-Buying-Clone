@@ -37,8 +37,10 @@ form.addEventListener("submit", async function(e) {
         password.value="";
         fname.value="";
         alert("Account Created");
+        window.location.href="sign-In.html"
         }else{
             alert("User already registered");
+            window.location.href="sign-In.html"
         }
     } 
     catch (error) {
