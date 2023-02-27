@@ -196,19 +196,21 @@ nav>h3{
     display: none;
 }
 #userData{
-    width: 95%;
+    width: 70%;
     height: 600px;
     /* border: 1px solid black; */
-    margin: auto;
+    /* margin: auto; */
    
 }
 table,th,td{
+    width: 60%;
     border: 1px solid black;
     margin: auto;
     text-align: center;
+    margin-left: 10px;
 } 
 th{
-    padding: 15px;
+    padding: 5px;
     background-color: black;
     color: white;
 }
