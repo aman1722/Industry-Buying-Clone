@@ -162,6 +162,8 @@ document.getElementById("sub").addEventListener("click", function(){
     document.querySelector(".otpPop").classList.remove("showOtp");
     document.getElementById("otp").value="";
     alert("purchase Successful");
+    localStorage.removeItem("Cart");
+    localStorage.removeItem("prices");
     let obj =JSON.parse( localStorage.getItem("loggedINUser"));
     setTimeout(()=>{
       window.location.href="index.html";
@@ -176,9 +178,6 @@ document.getElementById("sub").addEventListener("click", function(){
       data[i]["username"]= user;
       pushData(data[i]);
     }
-    setTimeout(function(){
-      localStorage.clear();
-    },9000);
   }
   else{
     document.getElementById("otp").value="";
