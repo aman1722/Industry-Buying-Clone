@@ -68,7 +68,10 @@ function display(data){
             });
             if(document.getElementById("coupon").value!==""){
               document.getElementById("coupon").value="";
-              alert("Coupon removed");
+              document.getElementById("pincode").value="";
+              document.getElementById("pin").value="";
+              document.getElementById("sippingCharges").innerText=`FREE`;
+              alert("Coupon and pincode removed");
             }
             localStorage.setItem("Cart" , JSON.stringify(data1));
             datacheck=data1;
@@ -95,8 +98,11 @@ function display(data){
           datacheck=data
           display(data);
           if(document.getElementById("coupon").value!==""){
-            document.getElementById("coupon").value="";
-          alert("Coupon removed");
+              document.getElementById("coupon").value="";
+              document.getElementById("pincode").value="";
+              document.getElementById("pin").value="";
+              document.getElementById("sippingCharges").innerText=`FREE`;
+              alert("Coupon and pincode removed");
           }
         })
 
@@ -159,6 +165,8 @@ document.getElementById("check").addEventListener("click", function(){
           document.getElementById("subTotal").innerText =`Rs ${total1}`;
           amount=total1+1200;
 
+        }else{
+          alert("Invalid Coupon or total");
         }
       }else if(document.getElementById("pincode").value=="123456"){
         document.getElementById("sippingCharges").innerText="FREE"
@@ -172,7 +180,7 @@ document.getElementById("check").addEventListener("click", function(){
           document.getElementById("subTotal").innerText =`Rs ${total1}`;
           amount = total1;
         }else{
-          alert("Invalid Pincode");
+          alert("Invalid Coupon or total");
         }
       } 
   }else{
@@ -191,23 +199,32 @@ document.getElementById("form").addEventListener("submit", function(el){
       for(let i=0 ; i<data.length ; ++i){
         total += Number(data[i].price)*Number(data[i].quantity);
       }
-      document.getElementById("total").innerText =`Rs ${total+1200}`;
-      document.getElementById("subTotal").innerText =`Rs ${total}`;
-      document.getElementById("aamount").innerText=`Rs ${total+1200}`;
-      document.getElementById("pin").value="";
-      document.getElementById("charges").style.display="block"
+      if(total>0){
+        document.getElementById("total").innerText =`Rs ${total+1200}`;
+        document.getElementById("subTotal").innerText =`Rs ${total}`;
+        document.getElementById("aamount").innerText=`Rs ${total+1200}`;
+        document.getElementById("pin").value="";
+        document.getElementById("charges").style.display="block"
+        amount=total+1200;
+      }else{
+        alert("Invalid Coupon or total");
+      }
     }else{
       document.getElementById("sippingCharges").innerText="FREE"
       let total=0;
       for(let i=0 ; i<data.length ; ++i){
         total += Number(data[i].price)*Number(data[i].quantity);
       }
-      document.getElementById("total").innerText =`Rs ${total}`;
-      document.getElementById("subTotal").innerText =`Rs ${total}`;
-      document.getElementById("aamount").innerText=`Rs ${total}`;
-      document.getElementById("pin").value="";
-      document.getElementById("charges").style.display="none"
+      if(total>0){
+          document.getElementById("total").innerText =`Rs ${total}`;
+          document.getElementById("subTotal").innerText =`Rs ${total}`;
+          document.getElementById("aamount").innerText=`Rs ${total}`;
+          document.getElementById("pin").value="";
+          document.getElementById("charges").style.display="none"
+        }else{
+          alert("Invalid Coupon or total");
         } 
+      } 
   }else{
     alert("Invalid Pincode");
   }
