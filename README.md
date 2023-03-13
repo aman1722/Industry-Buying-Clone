@@ -23,6 +23,11 @@ Contact Us: A page with a contact form for customers to get in touch with the st
 Users can browse products on the Shop page, read about the store on the About Us page, and contact the store on the Contact Us page.
 
 # Contributing
+This Project is made by a team consisting 4 members:-
+1. Aman 
+2. Aditya
+3. Nikhil
+4. Md Raza
 Contributions to Unkempt-Snow-4804 are welcome! If you would like to contribute, please follow these guidelines:
 
 # Fork the repository
